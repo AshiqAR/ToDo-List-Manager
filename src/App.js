@@ -7,30 +7,38 @@ import AddTodo from './Components/AddTodo';
 
 function App() {
   let initTodo;
-  if (localStorage.getItem('todos') == null) {
+  let i;
+  if (localStorage.getItem('todos') === null) {
     initTodo = [];
-    localStorage.setItem('todos', JSON.stringify(initTodo))
+    localStorage.setItem('todos', JSON.stringify([]))
+    i = 1;
+    localStorage.setItem('i', JSON.stringify(0))
   }
   else {
     initTodo = JSON.parse(localStorage.getItem('todos'))
+    i = JSON.parse(localStorage.getItem('i'))
   }
-  let i = 0;
+
+
+  const [todos, setTodos] = useState(initTodo);
+
   const onDelete = (todoItem) => {
+    console.log('hello')
     setTodos(todos.filter((todo) => todo !== todoItem))
-    localStorage.setItem('todos', JSON.stringify(todos));
+    localStorage.setItem('todos', JSON.stringify(todos.filter((todo) => todo !== todoItem)))
     if (todos.length === 0) {
-      i = 0
+      console.log(0)
+      localStorage.setItem('todos', JSON.stringify([]))
     }
   }
 
   const addTodo = (title, description) => {
-    i = i + 1
+    i = JSON.parse(localStorage.getItem('i')) + 1
+    localStorage.setItem('i', JSON.stringify(i))
     let newTodo = { sno: i, title: title, description: description };
     setTodos([...todos, newTodo])
-    localStorage.setItem('todos', JSON.stringify(todos))
+    localStorage.setItem('todos', JSON.stringify([...todos, newTodo]))
   }
-
-  const [todos, setTodos] = useState(initTodo);
 
 
   return (
