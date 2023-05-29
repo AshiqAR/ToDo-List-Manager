@@ -23,13 +23,8 @@ function App() {
   const [todos, setTodos] = useState(initTodo);
 
   const onDelete = (todoItem) => {
-    console.log('hello')
     setTodos(todos.filter((todo) => todo !== todoItem))
     localStorage.setItem('todos', JSON.stringify(todos.filter((todo) => todo !== todoItem)))
-    if (todos.length === 0) {
-      console.log(0)
-      localStorage.setItem('todos', JSON.stringify([]))
-    }
   }
 
   const addTodo = (title, description) => {
@@ -44,8 +39,10 @@ function App() {
   return (
     <>
       <Header title='Todos List' searchBar={false} />
-      <AddTodo addTodo={addTodo}></AddTodo>
-      <Todos todos={todos} onDelete={onDelete}></Todos>
+      <div className="display-container">
+        <Todos todos={todos} onDelete={onDelete}></Todos>
+        <AddTodo addTodo={addTodo}></AddTodo>
+      </div>
       <Footer></Footer>
     </>
   )

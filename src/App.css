@@ -3,7 +3,8 @@
   height: 100%;
 } */
 
-.app-container{
+
+.display-container{
   display: grid;
   grid-template-columns: 2fr 1fr;
 }

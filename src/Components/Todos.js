@@ -3,14 +3,15 @@ import Todo from './Todo'
 const Todos = (props) => {
 
     const containerStyle = {
-        minHeight: '100vh',
-        margin: '0px auto'
+        minHeight: '90vh',
+        margin: '0px auto',
+        borderRight: '1px solid black'
     }
 
     return (
         <div className="container" style={containerStyle}>
             <h3 className="text-center">Todos List</h3>
-            {props.todos.length === 0 ? <p>No Todos to display</p>
+            {props.todos.length === 0 ? <p><b>No Todos to display!</b></p>
                 :
                 props.todos.map((todoItem) => {
                     return (

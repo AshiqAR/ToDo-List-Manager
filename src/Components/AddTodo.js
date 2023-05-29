@@ -3,6 +3,10 @@ import React, { useState } from 'react'
 export default function AddTodo({ addTodo }) {
     const [todo, setTodo] = useState({ title: '', description: '' })
 
+    const containerStyle = {
+        minHeight: '80vh',
+        padding: '5px 20px'
+    }
 
     const submit = (e) => {
         e.preventDefault();
@@ -16,8 +20,8 @@ export default function AddTodo({ addTodo }) {
     }
 
     return (
-        <div className='container my-3' >
-            <h3 className='text-center'>Add a Todo</h3>
+        <div className='container my-3' style={containerStyle} >
+            <h3 className='text-center' >Add a Todo</h3>
             <form id='addTodoForm' onSubmit={submit}>
                 <div className="mb-3 ">
                     <label htmlFor="todoTitle" className="form-label">To Do Title</label>
