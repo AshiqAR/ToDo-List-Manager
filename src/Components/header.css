@@ -1,0 +1,9 @@
+.navbar{
+    position: fixed;
+    width: 100%;
+    background-color: rgba(240, 174, 88, 0.263);
+}
+
+.container-fluid{
+    background-color: rgba(169, 122, 61, 0.126);
+}

@@ -1,4 +1,5 @@
 import Todo from './Todo'
+import './todos.css'
 
 const Todos = (props) => {
 

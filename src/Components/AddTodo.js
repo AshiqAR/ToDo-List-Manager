@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './addTodo.css'
 
 export default function AddTodo({ addTodo }) {
     const [todo, setTodo] = useState({ title: '', description: '' })
